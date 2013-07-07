@@ -36,11 +36,13 @@
 			var value1 = getParam("v1");
 			var value2 = getParam("v2");
 			var value3 = getParam("v3");
+			var value4 = getParam("v4");
+			var value5 = getParam("v5");
 			var priceType = getParam("priceType");
 		
-		v1=(value1*100.5);
-		v2=(value2*73);
-		v3=(value3*88);
+		v1=((parseInt(value1)+parseInt(value2)+parseInt(value3))*100.5);
+		v2=(value4*73);
+		v3=(value5*88);
 		var total = v1+v2+v3;
 		document.getElementById("value1").innerHTML=v1.toFixed(2);
 		document.getElementById("value2").innerHTML=v2.toFixed(2);

@@ -25,9 +25,19 @@
 		var v1=0;
 		var v2=0;
 		var v3=0;
+		var v4=0;
+		var v5=0;
 		function initExecute(){
 			var l = getParam("l");
 			var b = getParam("b");
+			var a1 = getParam("a1");
+			var a2 = getParam("a2");
+			var a3 = getParam("a3");
+			var a4 = getParam("a4");
+			var b1 = getParam("b1");
+			var b2= getParam("b2");
+			var b3 = getParam("b3");
+			var b4 = getParam("b4");
 			var bh = 0;
 			if(b<=10.5){
 				bh=0.3*0.4;
@@ -37,13 +47,20 @@
 				bh=0.4*0.6;
 			}
 		var total = (l/15+1)*b*bh;
-		document.getElementById("displayDiv").innerHTML="定额工程量："+total.toFixed(2);
-		v1=(total*0.5631).toFixed(2);
-		v2=(total*1.2585).toFixed(2);
-		v3=(total*0.1768).toFixed(2);
-		document.getElementById("value1").innerHTML=v1;
-		document.getElementById("value2").innerHTML=v2;
+		document.getElementById("displayDiv1").innerHTML="定额工程量："+total.toFixed(2);
+		var total1= a1*a2+a3*a4;
+		var total2 = b1*b2+b3*b4;
+v1=(total1*0.2026).toFixed(2);	
+v2=(total2*0.1440).toFixed(2);	
+		v3=(total*0.5631).toFixed(2);
+		v4=(total*1.2585).toFixed(2);
+		v5=(total*0.1768).toFixed(2);
+	
+	document.getElementById("value1").innerHTML=v1;
+	document.getElementById("value2").innerHTML=v2;
 		document.getElementById("value3").innerHTML=v3;
+		document.getElementById("value4").innerHTML=v4;
+		document.getElementById("value5").innerHTML=v5;
 		}
 		
 		function getParam(paramName)
@@ -121,15 +138,155 @@
 			  <div class="bar" style="width: 35%;">要素信息录入</div>
 			  <div class="bar bar-success" style="width: 35%;"> 算量结果</div>
 			</div>
+				
 			<div class="hero-unit" >
-			<div id="displayDiv"></div>
-				价格包 <select class="span2" id="priceType">
+		价格包 <select class="span2" id="priceType">
 					  <option value="1">价格包1</option>
 					  <option value="2">价格包2</option>
 					  <option value="3">价格包3</option>
 					</select>
-				<button type="button" class="btn btn-warning pull-right" onclick="executePrice()">开始算价</button>
+					<button type="button" class="btn btn-warning pull-right" onclick="executePrice()">开始算价</button>
+			
+				
 				<table class="table table-bordered table-hover table-striped">
+              <thead>
+                <tr>
+				  <th class="span5">定额子目编号</th>
+				  <th class="span8">定额名称</th>
+                  <th class="span6">定额单位</th>
+                  <th class="span8">工作内容</th>
+                  <th class="span2">表达式</th>
+				  <th class="span4">计算式</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>s2-1-1</td>
+				  <td>人工挖土方Ⅰ、Ⅱ类土</td>
+                  <td>m³</td>
+                  <td>挖土、装土、50m以内运土、卸土、回空、清理场地</td>
+				  <td>挖方量=平均面积挖方1*距离1+平均面积挖方2*距离2</td>
+				  <td></td>
+                </tr>
+              </tbody>
+            </table>
+			<table class="table table-bordered table-hover table-striped">
+              <thead>
+                <tr>
+                  <th>清单项目编号</th>
+                  <th>清单项目名称</th>
+                  <th>清单计量单位</th>
+                  <th>清单工程内容</th>
+				  <th>清单项目特征</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>040101001</td>
+                  <td>挖一般土方</td>
+                  <td>m³</td>
+                  <td>1、土方开挖<br>
+2、围护、支撑<br>
+3、场内运输<br>
+4、平整、夯实
+</td>
+				  <td>1、土壤类别  <br>             2、挖土深度
+
+
+
+</td>
+                </tr>
+              </tbody>
+            </table>
+				<div id="displayDiv1"></div>
+			<table class="table table-bordered table-hover table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>名称及规格</th>
+                  <th>单位</th>
+                  <th>消耗量</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>综合人工</td>
+                  <td>工日</td>
+                  <td id="value1"></td>
+                </tr>
+               
+              </tbody>
+            </table>
+			
+			<table class="table table-bordered table-hover table-striped">
+              <thead>
+                <tr>
+				  <th class="span5">定额子目编号</th>
+				  <th class="span8">定额名称</th>
+                  <th class="span6">定额单位</th>
+                  <th class="span8">工作内容</th>
+                  <th class="span2">表达式</th>
+				  <th class="span4">计算式</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>s2-1-12</td>
+				  <td>耕地填前处理挖腐植土</td>
+                  <td>m³</td>
+                  <td>挖土、装土、修整底边</td>
+				  <td>填方量=平均面积填方1*距离1+平均面积填方2*距离2
+</td>
+				  <td></td>
+                </tr>
+              </tbody>
+            </table>
+			<table class="table table-bordered table-hover table-striped">
+              <thead>
+                <tr>
+                  <th>清单项目编号</th>
+                  <th>清单项目名称</th>
+                  <th>清单计量单位</th>
+                  <th>清单工程内容</th>
+				  <th>清单项目特征</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>040103001</td>
+                  <td>填方</td>
+                  <td>m³</td>
+                  <td>1、填方<br>
+2、压实</td>
+				  <td>1、填方材料品种<br>
+2、密实度
+</td>
+                </tr>
+              </tbody>
+            </table>
+				<div id="displayDiv1"></div>
+			<table class="table table-bordered table-hover table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>名称及规格</th>
+                  <th>单位</th>
+                  <th>消耗量</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>综合人工</td>
+                  <td>工日</td>
+                  <td id="value2"></td>
+                </tr>
+               
+              </tbody>
+            </table>
+			
+			<table class="table table-bordered table-hover table-striped">
               <thead>
                 <tr>
 				  <th class="span5">定额子目编号</th>
@@ -171,6 +328,7 @@
                 </tr>
               </tbody>
             </table>
+				<div id="displayDiv1"></div>
 			<table class="table table-bordered table-hover table-striped">
               <thead>
                 <tr>
@@ -185,22 +343,24 @@
                   <td>1</td>
                   <td>综合人工</td>
                   <td>工日</td>
-                  <td id="value1"></td>
+                  <td id="value3"></td>
                 </tr>
                 <tr>
                   <td>2</td>
                   <td>道碴(30～80mm)</td>
                   <td>T</td>
-                  <td id="value2"></td>
+                  <td id="value4"></td>
                 </tr>
                 <tr>
                   <td>3</td>
                   <td>黄砂(中粗)</td>
                   <td>T</td>
-                  <td id="value3"></td>
+                  <td id="value5"></td>
                 </tr>
               </tbody>
             </table>
+			
+			
 			</div>
 		  </div>
 		</div>
@@ -217,7 +377,7 @@ function getQuataAndVariable(){
 }
 function executePrice(){
 var priceType = document.getElementById("priceType").value;
-	window.location.href='priceresult.html'+'?priceType='+priceType+"&v1="+v1+"&v2="+v2+"&v3="+v3;
+	window.location.href='priceresult.html'+'?priceType='+priceType+"&v1="+v1+"&v2="+v2+"&v3="+v3+"&v4="+v4+"&v5="+v5;
 }
 </script>
     <!-- Le javascript
