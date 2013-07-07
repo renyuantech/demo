@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)http://twitter.github.io/bootstrap/examples/hero.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Bootstrap, from Twitter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="http://twitter.github.io/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link href="http://twitter.github.io/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://twitter.github.io/bootstrap/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://twitter.github.io/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://twitter.github.io/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="http://twitter.github.io/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="http://twitter.github.io/bootstrap/assets/ico/favicon.png">
+	<script type="text/javascript">
+	var v1=0;
+	var v2=0;
+	var v3=0;
+		function initExecute(){
+			var value1 = getParam("v1");
+			var value2 = getParam("v2");
+			var value3 = getParam("v3");
+			var priceType = getParam("priceType");
+		
+		v1=(value1*100.5);
+		v2=(value2*73);
+		v3=(value3*88);
+		var total = v1+v2+v3;
+		document.getElementById("value1").innerHTML=v1.toFixed(2);
+		document.getElementById("value2").innerHTML=v2.toFixed(2);
+		document.getElementById("value3").innerHTML=v3.toFixed(2);
+		document.getElementById("totalPrice").innerHTML="总价："+total.toFixed(2);
+		}
+		
+		function getParam(paramName)
+{
+        paramValue = "";
+        isFound = false;
+        if (this.location.search.indexOf("?") == 0 && this.location.search.indexOf("=")>1)
+        {
+            arrSource = unescape(this.location.search).substring(1,this.location.search.length).split("&");
+            i = 0;
+            while (i < arrSource.length && !isFound)
+            {
+                if (arrSource[i].indexOf("=") > 0)
+                {
+                     if (arrSource[i].split("=")[0].toLowerCase()==paramName.toLowerCase())
+                     {
+                        paramValue = arrSource[i].split("=")[1];
+                        isFound = true;
+                     }
+                }
+                i++;
+            }   
+        }
+   return paramValue;
+   }
+	</script>
+  </head>
+
+  <body onload="initExecute();">
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">工程造价信息平台</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="home.html">首页</a></li>
+              <li><a href="federation.htm">协会介绍</a></li>
+              <li class="active"><a href="calquantity.html">算量造价</a></li>
+			  <li><a href="projectsearch.htm">造价情报</a></li>
+			  <li><a href="bid.html">招投标信息</a></li>
+			  <li><a href="dataanalysis.html">数据分析</a></li>
+            </ul>
+            <form class="navbar-form pull-right">
+			  <label class="span2 brand">欢迎您，xxx&nbsp;&nbsp;&nbsp;<a href="home.html">退出</a><label>
+            </form>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+		<div class="row-fluid">
+		  <div class="span2 tabbable tabs-left">
+			<ul class="nav nav-tabs">
+			  <li><a href="calquantity.html">要素录入</a></li>
+			  <li><a href="quantityresult.html">算量</a></li>
+			  <li class="active"><a href="priceresult.html">算价</a></li>
+			</ul>
+		  </div>
+		  
+		  <div class="span10">
+		    <div class="progress row-fluid ">
+			  <div class="bar" style="width: 35%;">要素信息录入</div>
+			  <div class="bar bar-success" style="width: 35%;"> 算量结果</div>
+			  <div class="bar bar-warning" style="width: 30%;"> 算价结果</div>
+			</div>
+			
+			<div class="hero-unit">
+			<button type="button" class="btn btn-warning pull-right" onclick="executePrice()">打印</button>
+           <table class="table table-bordered table-hover table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>名称及规格</th>
+                  <th>单价</th>
+                  <th>总价</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>综合人工</td>
+                  <td>100.5</td>
+                  <td id="value1"></td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>道碴(30～80mm)</td>
+                  <td>73</td>
+                  <td id="value2"></td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>黄砂(中粗)</td>
+                  <td>88</td>
+                  <td id="value3"></td>
+                </tr>
+              </tbody>
+			 
+            </table>
+			 <div id="totalPrice"></div>
+			</div>
+		  </div>
+		</div>
+      <hr>
+      <footer class="text-center">
+		<p>版权所有  © 2001-2013 <a href="www.shsz.org.cn">www.shsz.org.cn</a>
+		<br>主办：上海市市政公路行业协会&nbsp;&nbsp;地址：上海市虹口区广中路411号&nbsp;&nbsp;总机：021-65930625&nbsp;&nbsp;传真：63232862</p>
+      </footer>
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./Bootstrap1_files/js/jquery.js"></script>
+    <script src="./Bootstrap1_files/js/bootstrap-transition.js"></script>
+    <script src="./Bootstrap1_files/js/bootstrap-alert.js"></script>
+    <script src="./Bootstrap1_files/js/bootstrap-modal.js"></script>
+    <script src="./Bootstrap1_files/js/bootstrap-dropdown.js"></script>
+    <script src="./Bootstrap1_files/js/bootstrap-scrollspy.js"></script>
+    <script src="./Bootstrap1_files/js/bootstrap-tab.js"></script>
+    <script src="./Bootstrap1_files/js/bootstrap-tooltip.js"></script>
+    <script src="./Bootstrap1_files/js/bootstrap-popover.js"></script>
+    <script src="./Bootstrap1_files/js/bootstrap-button.js"></script>
+    <script src="./Bootstrap1_files/js/bootstrap-collapse.js"></script>
+    <script src="./Bootstrap1_files/js/bootstrap-carousel.js"></script>
+    <script src="./Bootstrap1_files/js/bootstrap-typeahead.js"></script>
+</body></html>

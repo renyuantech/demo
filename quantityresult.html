@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)http://twitter.github.io/bootstrap/examples/hero.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Bootstrap, from Twitter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="http://twitter.github.io/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link href="http://twitter.github.io/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+	<script type="text/javascript">
+		var v1=0;
+		var v2=0;
+		var v3=0;
+		function initExecute(){
+			var l = getParam("l");
+			var b = getParam("b");
+			var bh = 0;
+			if(b<=10.5){
+				bh=0.3*0.4;
+			}else if(b>10.5&&b<=21.0){
+				bh=0.4*0.4;
+			}else if(b>21){
+				bh=0.4*0.6;
+			}
+		var total = (l/15+1)*b*bh;
+		document.getElementById("displayDiv").innerHTML="定额工程量："+total.toFixed(2);
+		v1=(total*0.5631).toFixed(2);
+		v2=(total*1.2585).toFixed(2);
+		v3=(total*0.1768).toFixed(2);
+		document.getElementById("value1").innerHTML=v1;
+		document.getElementById("value2").innerHTML=v2;
+		document.getElementById("value3").innerHTML=v3;
+		}
+		
+		function getParam(paramName)
+		{
+				paramValue = "";
+				isFound = false;
+				if (this.location.search.indexOf("?") == 0 && this.location.search.indexOf("=")>1)
+				{
+					arrSource = unescape(this.location.search).substring(1,this.location.search.length).split("&");
+					i = 0;
+					while (i < arrSource.length && !isFound)
+					{
+						if (arrSource[i].indexOf("=") > 0)
+						{
+							 if (arrSource[i].split("=")[0].toLowerCase()==paramName.toLowerCase())
+							 {
+								paramValue = arrSource[i].split("=")[1];
+								isFound = true;
+							 }
+						}
+						i++;
+					}   
+				}
+		   return paramValue;
+		   }
+	</script>
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://twitter.github.io/bootstrap/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://twitter.github.io/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://twitter.github.io/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="http://twitter.github.io/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="http://twitter.github.io/bootstrap/assets/ico/favicon.png">
+  </head>
+
+  <body onload="initExecute();">
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">工程造价信息平台</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="home.html">首页</a></li>
+              <li><a href="federation.htm">协会介绍</a></li>
+              <li class="active"><a href="calquantity.html">算量造价</a></li>
+			  <li><a href="projectsearch.htm">造价情报</a></li>
+			  <li><a href="bid.html">招投标信息</a></li>
+			  <li><a href="dataanalysis.html">数据分析</a></li>
+            </ul>
+            <form class="navbar-form pull-right">
+			  <label class="span2 brand">欢迎您，xxx&nbsp;&nbsp;&nbsp;<a href="home.html">退出</a><label>
+            </form>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+		<div class="row-fluid">
+		  <div class="span2 tabbable tabs-left">
+			<ul class="nav nav-tabs">
+			  <li><a href="calquantity.html">要素录入</a></li>
+			  <li class="active"><a href="quantityresult.html">算量</a></li>
+			  <li><a href="priceresult.html">算价</a></li>
+			</ul>
+		  </div>
+		  
+		  <div class="span10">
+		    <div class="progress row-fluid ">
+			  <div class="bar" style="width: 35%;">要素信息录入</div>
+			  <div class="bar bar-success" style="width: 35%;"> 算量结果</div>
+			</div>
+			<div class="hero-unit" >
+			<div id="displayDiv"></div>
+				价格包 <select class="span2" id="priceType">
+					  <option value="1">价格包1</option>
+					  <option value="2">价格包2</option>
+					  <option value="3">价格包3</option>
+					</select>
+				<button type="button" class="btn btn-warning pull-right" onclick="executePrice()">开始算价</button>
+				<table class="table table-bordered table-hover table-striped">
+              <thead>
+                <tr>
+				  <th class="span5">定额子目编号</th>
+				  <th class="span8">定额名称</th>
+                  <th class="span6">定额单位</th>
+                  <th class="span8">工作内容</th>
+                  <th class="span2">表达式</th>
+				  <th class="span4">计算式</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2-1-35</td>
+				  <td>碎石盲沟</td>
+                  <td>m³</td>
+                  <td>放样、开槽挖土、盲沟填料、余土50M以内运输、清理场地</td>
+				  <td>碎石盲沟=((长/@+1)*路幅宽)*(断面宽度*断面深度)</td>
+				  <td>V=((L/15m+1)*B)*(b*h)</td>
+                </tr>
+              </tbody>
+            </table>
+			<table class="table table-bordered table-hover table-striped">
+              <thead>
+                <tr>
+                  <th>清单项目编号</th>
+                  <th>清单项目名称</th>
+                  <th>清单计量单位</th>
+                  <th>清单工程内容</th>
+				  <th>清单项目特征</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>040201014</td>
+                  <td>盲沟</td>
+                  <td>m</td>
+                  <td>盲沟铺筑</td>
+				  <td>1. 材料品种<br>2. 断面<br>3. 规格</td>
+                </tr>
+              </tbody>
+            </table>
+			<table class="table table-bordered table-hover table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>名称及规格</th>
+                  <th>单位</th>
+                  <th>消耗量</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>综合人工</td>
+                  <td>工日</td>
+                  <td id="value1"></td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>道碴(30～80mm)</td>
+                  <td>T</td>
+                  <td id="value2"></td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>黄砂(中粗)</td>
+                  <td>T</td>
+                  <td id="value3"></td>
+                </tr>
+              </tbody>
+            </table>
+			</div>
+		  </div>
+		</div>
+      <hr>
+      <footer class="text-center">
+		<p>版权所有  © 2001-2013 <a href="www.shsz.org.cn">www.shsz.org.cn</a>
+		<br>主办：上海市市政公路行业协会&nbsp;&nbsp;地址：上海市虹口区广中路411号&nbsp;&nbsp;总机：021-65930625&nbsp;&nbsp;传真：63232862</p>
+      </footer>
+    </div> <!-- /container -->
+	
+<script type="text/javascript">
+function getQuataAndVariable(){
+	document.getElementById("quataDiv").style.display="block";	
+}
+function executePrice(){
+var priceType = document.getElementById("priceType").value;
+	window.location.href='priceresult.html'+'?priceType='+priceType+"&v1="+v1+"&v2="+v2+"&v3="+v3;
+}
+</script>
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./Bootstrap1_files/js/jquery.js"></script>
+    <script src="./Bootstrap1_files/js/bootstrap-transition.js"></script>
+    <script src="./Bootstrap1_files/js/bootstrap-alert.js"></script>
+    <script src="./Bootstrap1_files/js/bootstrap-modal.js"></script>
+    <script src="./Bootstrap1_files/js/bootstrap-dropdown.js"></script>
+    <script src="./Bootstrap1_files/js/bootstrap-scrollspy.js"></script>
+    <script src="./Bootstrap1_files/js/bootstrap-tab.js"></script>
+    <script src="./Bootstrap1_files/js/bootstrap-tooltip.js"></script>
+    <script src="./Bootstrap1_files/js/bootstrap-popover.js"></script>
+    <script src="./Bootstrap1_files/js/bootstrap-button.js"></script>
+    <script src="./Bootstrap1_files/js/bootstrap-collapse.js"></script>
+    <script src="./Bootstrap1_files/js/bootstrap-carousel.js"></script>
+    <script src="./Bootstrap1_files/js/bootstrap-typeahead.js"></script>
+</body></html>
