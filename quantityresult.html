@@ -55,7 +55,9 @@ v2=(total2*0.1440).toFixed(2);
 		v3=(total*0.5631).toFixed(2);
 		v4=(total*1.2585).toFixed(2);
 		v5=(total*0.1768).toFixed(2);
-	
+	document.getElementById("display1").innerHTML=a1+"×"+a2+"+"+a3+"×"+a4;
+	document.getElementById("display2").innerHTML=b1+"×"+b2+"+"+b3+"×"+b4;
+	document.getElementById("display3").innerHTML="v=("+l+"÷"+"15+1)"+"×"+b+"×"+bh;
 	document.getElementById("value1").innerHTML=v1;
 	document.getElementById("value2").innerHTML=v2;
 		document.getElementById("value3").innerHTML=v3;
@@ -166,7 +168,7 @@ v2=(total2*0.1440).toFixed(2);
                   <td>m³</td>
                   <td>挖土、装土、50m以内运土、卸土、回空、清理场地</td>
 				  <td>挖方量=平均面积挖方1*距离1+平均面积挖方2*距离2</td>
-				  <td></td>
+				  <td id="display1"></td>
                 </tr>
               </tbody>
             </table>
@@ -238,7 +240,7 @@ v2=(total2*0.1440).toFixed(2);
                   <td>挖土、装土、修整底边</td>
 				  <td>填方量=平均面积填方1*距离1+平均面积填方2*距离2
 </td>
-				  <td></td>
+				  <td id="display2"></td>
                 </tr>
               </tbody>
             </table>
@@ -304,7 +306,7 @@ v2=(total2*0.1440).toFixed(2);
                   <td>m³</td>
                   <td>放样、开槽挖土、盲沟填料、余土50M以内运输、清理场地</td>
 				  <td>碎石盲沟=((长/@+1)*路幅宽)*(断面宽度*断面深度)</td>
-				  <td>V=((L/15m+1)*B)*(b*h)</td>
+				  <td id="display3"></td>
                 </tr>
               </tbody>
             </table>
