@@ -344,6 +344,7 @@ m</div></td>
         <option value="1" selected="selected">I    类土</option>
         <option value="2">II   类土</option>
         <option value="3">III  类土</option>
+		<option value="4">IV  类土</option>
       </select>    </td>
     <td width="195" bgcolor="#CCCCFF">密实度：
       <select id="mishidu" name="select2">
@@ -359,9 +360,9 @@ m</div></td>
         <option value="2">机械挖土方</option>
             </select></td>
     <td bgcolor="#CCCCFF">碎石盲沟：
-    <input type="checkbox" id="hengxiangmanggou" name="checkbox22322" value="checkbox" />
+    <input type="checkbox" id="hengxiangmanggou" name="checkbox22322"  />
     横向盲沟
-     <input type="checkbox" id="zongxiangmanggou" name="checkbox223222" value="checkbox" />
+     <input type="checkbox" id="zongxiangmanggou" name="checkbox223222"  />
 纵向盲沟
   <input name="textfield2433" id="zongxiangmanggoushu" type="text" size="6" />
 条</td>
@@ -577,7 +578,37 @@ m</div></td>
   </tr>
 </table>
 <p align="center">&nbsp;</p>
+<script type="text/javascript">
+	function collectData(){
+		var hrefStr = "004.html?a=1";
+		var inputs = document.getElementsByTagName("input");
+		if(inputs.length>0){
+			for(var i=0;i<inputs.length;i++){
+				if(inputs[i].type=='text'&&inputs[i].value!=null&&inputs[i].value!=""){
+					hrefStr = hrefStr+"&"+inputs[i].id+"="+inputs[i].value;
+				}
+			}
+		}
+		var selects = document.getElementsByTagName("select");
+		if(selects.length>0){
+			for(var i=0;i<selects.length;i++){
+				if(selects[i].id!=""&&selects[i].value!=null&&selects[i].value!=""){
+					hrefStr = hrefStr+"&"+selects[i].id+"="+selects[i].value;
+				}
+			}
+		}
+		var selects = document.getElementsByTagName("input");
+		if(selects.length>0){
+			for(var i=0;i<inputs.length;i++){
+				if(inputs[i].type=='checkbox'&&inputs[i].value!=null&&inputs[i].value!=""){
+					hrefStr = hrefStr+"&"+inputs[i].id+"="+inputs[i].checked;
+				}
+			}
+		}
+		
+		window.location.href= hrefStr;
+	}
+
+</script>
 </body>
-
-
 </html>

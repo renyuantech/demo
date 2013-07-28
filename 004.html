@@ -17,9 +17,302 @@
 }
 -->
 </style>
+<script type="text/javascript">
+		
+		function initExecute(){
+			var watufangshi = getParam('watufangshi');
+			var turangleibie = getParam('turangleibie');
+			var zhuanghao1 = getParam('zhuanghao1');
+			var zhuanghao2 = getParam('zhuanghao2');
+			var zhuanghao3 = getParam('zhuanghao3');
+			var zhuanghao4 = getParam('zhuanghao4');
+			var wafang1 = getParam('wafang1');
+			var wafang2 = getParam('wafang2');
+			var wafang3 = getParam('wafang3');
+			var wafang4 = getParam('wafang4');
+			var tianfang1 = getParam('tianfang1');
+			var tianfang2 = getParam('tianfang2');
+			var tianfang3 = getParam('tianfang3');
+			var tianfang4 = getParam('tianfang4');
+			
+			var watu ="";
+			var watuStr ="";
+			var junjuVal = 0;
+			if(zhuanghao1!=""&&zhuanghao2!=""&&wafang1!=""&&wafang2!=""){
+				watu = (zhuanghao2-zhuanghao1)*(parseFloat(wafang1)+parseFloat(wafang2))/2;
+				watuStr = "("+zhuanghao2+"-"+zhuanghao1+")" +"×"+"("+wafang1+"+"+wafang2+")"+"÷2";
+				junjuVal = watu* (zhuanghao2-zhuanghao1);
+			}
+			
+			if(zhuanghao2!=""&&zhuanghao3!=""&&wafang2!=""&&wafang3!=""){
+				watu =  watu +(zhuanghao3-zhuanghao2)*(parseFloat(wafang2)+parseFloat(wafang3))/2;
+				watuStr = watuStr+"+"+"("+zhuanghao3+"-"+zhuanghao2+")" +"×"+"("+wafang2+"+"+wafang3+")"+"÷2";
+				junjuVal = parseFloat(junjuVal)+parseFloat(((zhuanghao3-zhuanghao2)*(parseFloat(wafang2)+parseFloat(wafang3))/2)* (zhuanghao3-zhuanghao2));
+			}
+			
+			if(zhuanghao3!=""&&zhuanghao4!=""&&wafang3!=""&&wafang4!=""){
+				watu =  watu +(zhuanghao4-zhuanghao3)*(parseFloat(wafang3)+parseFloat(wafang4))/2;
+				watuStr = watuStr+"+"+"("+zhuanghao4+"-"+zhuanghao3+")" +"×"+"("+wafang3+"+"+wafang4+")"+"÷2";
+				junjuVal = parseFloat(junjuVal)+parseFloat(((zhuanghao4-zhuanghao3)*(parseFloat(wafang3)+parseFloat(wafang4))/2)* (zhuanghao4-zhuanghao3));
+			}
+				watu = parseFloat(watu).toFixed(2);
+			
+			if(watufangshi=='1'&&(turangleibie=='1'||turangleibie=='2')&&watu!=""&&watuStr!=""){
+				document.getElementById("s1").style.display="table-row";
+				document.getElementById("s1-value").innerHTML=watu;
+				document.getElementById("s1-str").innerHTML=watuStr;
+			}
+			if(watufangshi=='1'&&turangleibie=='3'&&watu!=""&&watuStr!=""){
+				document.getElementById("s2").style.display="table-row";
+				document.getElementById("s2-value").innerHTML=watu;
+				document.getElementById("s2-str").innerHTML=watuStr;
+			}
+			if(watufangshi=='1'&&turangleibie=='4'&&watu!=""&&watuStr!=""){
+				document.getElementById("s3").style.display="table-row";
+				document.getElementById("s3-value").innerHTML=watu;
+				document.getElementById("s3-str").innerHTML=watuStr;
+			}
+			if(watufangshi=='2'&&watu!=""&&watuStr!=""){
+				document.getElementById("s4").style.display="table-row";
+				document.getElementById("s4-value").innerHTML=watu;
+				document.getElementById("s4-str").innerHTML=watuStr;
+			}
+			
+			if(watu!=""&&watuStr!=""){
+				document.getElementById("q1").style.display="table-row";
+				document.getElementById("q1-1").style.display="table-row";
+				document.getElementById("q1-2").style.display="table-row";
+				document.getElementById("q1-3").style.display="table-row";
+				document.getElementById("q1-value").innerHTML=watu;
+				document.getElementById("q1-str").innerHTML=watuStr;
+				var type;
+				if(turangleibie=="1"){
+					type="I类土";
+				}else if(turangleibie=="2"){
+					type="II类土";
+				}else if(turangleibie=="3"){
+					type="III类土";
+				}else if(turangleibie=="4"){
+					type="IV类土";
+				}
+				document.getElementById("q1-type").innerHTML=type;
+			}
+			
+			var chexingdaokuandu = getParam("chexingdaokuandu");
+			var renxingdaokuandu = getParam("renxingdaokuandu");
+			var gelidaikuandu = getParam("gelidaikuandu");
+			var mishidu = getParam("mishidu");
+			var tiantu ="";
+			var tiantuStr ="";
+			
+			if(zhuanghao1!=""&&zhuanghao2!=""&&tianfang1!=""&&tianfang2!=""){
+				tiantu = (zhuanghao2-zhuanghao1)*(parseFloat(tianfang1)+parseFloat(tianfang2))/2;
+				tiantuStr = "("+zhuanghao2+"-"+zhuanghao1+")" +"×"+"("+tianfang1+"+"+tianfang2+")"+"÷2";
+			}
+			
+			if(zhuanghao2!=""&&zhuanghao3!=""&&tianfang2!=""&&tianfang3!=""){
+				tiantu =  tiantu +(zhuanghao3-zhuanghao2)*(parseFloat(tianfang2)+parseFloat(tianfang3))/2;
+				tiantuStr = tiantuStr+"+"+"("+zhuanghao3+"-"+zhuanghao2+")" +"×"+"("+tianfang2+"+"+tianfang3+")"+"÷2";
+			}
+			
+			if(zhuanghao3!=""&&zhuanghao4!=""&&tianfang3!=""&&tianfang4!=""){
+				tiantu =  tiantu +(zhuanghao4-zhuanghao3)*(parseFloat(tianfang3)+parseFloat(tianfang4))/2;
+				tiantuStr = tiantuStr+"+"+"("+zhuanghao4+"-"+zhuanghao3+")" +"×"+"("+tianfang3+"+"+tianfang4+")"+"÷2";
+			}
+			
+			var widthVar = parseFloat(chexingdaokuandu)+parseFloat(renxingdaokuandu)+parseFloat(gelidaikuandu);
+			var renxingVal;
+			if(renxingdaokuandu!=""){
+				renxingVal = (tiantu * renxingdaokuandu /widthVar).toFixed(2);
+				document.getElementById("s7").style.display="table-row";
+				document.getElementById("s7-value").innerHTML=renxingVal;
+				document.getElementById("s7-str").innerHTML="("+tiantuStr+")"+ "×"+"("+renxingdaokuandu+"÷"+"("+chexingdaokuandu+"+"+renxingdaokuandu+"+"+gelidaikuandu+")"+")";
+				
+			}
+			
+			var chexingtiantuStr = "("+tiantuStr+")"+ "×"+"("+chexingdaokuandu+"÷"+"("+chexingdaokuandu+"+"+renxingdaokuandu+"+"+gelidaikuandu+")"+")";
+			if(mishidu=="90"&&tiantu!=""&&tiantuStr!=""){
+				tiantu = (tiantu *chexingdaokuandu/widthVar * 1.135).toFixed(2);
+				
+				document.getElementById("s8").style.display="table-row";
+				document.getElementById("s8-value").innerHTML=tiantu;
+				document.getElementById("s8-str").innerHTML= chexingtiantuStr +"×"+1.135;
+			}
+			
+			if(mishidu=="93"&&tiantu!=""&&tiantuStr!=""){
+				tiantu = (tiantu *chexingdaokuandu/widthVar * 1.165).toFixed(2);
+				document.getElementById("s9").style.display="table-row";
+				document.getElementById("s9-value").innerHTML=tiantu;
+				document.getElementById("s9-str").innerHTML=chexingtiantuStr +"×"+1.165;
+			}
+			
+			if(mishidu=="95"&&tiantu!=""&&tiantuStr!=""){
+				tiantu = (tiantu *chexingdaokuandu/widthVar * 1.185).toFixed(2);
+				document.getElementById("s10").style.display="table-row";
+				document.getElementById("s10-value").innerHTML=tiantu;
+				document.getElementById("s10-str").innerHTML=chexingtiantuStr +"×"+1.185;
+			}
+			if(mishidu=="98"&&tiantu!=""&&tiantuStr!=""){
+				tiantu = (tiantu *chexingdaokuandu/widthVar * 1.220).toFixed(2);
+				document.getElementById("s11").style.display="table-row";
+				document.getElementById("s11-value").innerHTML=tiantu;
+				document.getElementById("s11-str").innerHTML=chexingtiantuStr +"×"+1.220;
+			}
+			
+			if(renxingdaokuandu!=""&&chexingdaokuandu!=""){
+				var q2Val = (parseFloat(renxingVal)+parseFloat(tiantu)).toFixed(2);
+				document.getElementById("q2").style.display="table-row";
+				document.getElementById("q2-1").style.display="table-row";
+				document.getElementById("q2-2").style.display="table-row";
+				document.getElementById("q2-3").style.display="table-row";
+				document.getElementById("q2-value").innerHTML=q2Val;
+				document.getElementById("q2-str").innerHTML=renxingVal+"+"+tiantu;
+				document.getElementById("q2-type").innerHTML=mishidu+"%";
+			}
+			
+			var hengxiangmanggou = getParam("hengxiangmanggou");
+			var zongxiangmanggou = getParam("zongxiangmanggou");
+			var zongxiangmanggoushu = getParam("zongxiangmanggoushu");
+			
+			var totalLength;
+			
+			
+			if(zhuanghao1!=""&&zhuanghao2!=""){
+				totalLength = zhuanghao2-zhuanghao1;
+			}
+			if(zhuanghao1!=""&&zhuanghao3!=""){
+				totalLength = zhuanghao3-zhuanghao1;
+			}
+			if(zhuanghao1!=""&&zhuanghao4!=""){
+				totalLength = zhuanghao4-zhuanghao1;
+			}
+			
+			var duanmianStr;
+			var duanmianVar;
+			var duanmianVarQ;
+			if(widthVar<=10.5){
+				duanmianVar = 0.3*0.4;
+				duanmianStr = 0.3+"×"+0.4;
+				duanmianVarQ = 0.3+"m"+"×"+0.4+"m";
+			}else if(widthVar>10.5&&widthVar<=21){
+				duanmianVar = 0.4*0.4;
+				duanmianStr = 0.4+"×"+0.4;
+				duanmianVarQ = 0.4+"m"+"×"+0.4+"m";
+			}else if(widthVar>21){
+				duanmianVar = 0.4*0.6;
+				duanmianStr = 0.4+"×"+0.6;
+				duanmianVarQ = 0.4+"m"+"×"+0.6+"m";
+			}
+			
+			var hengxiangmanggouVar;
+			var hengxiangmanggouStr;
+			var hengxiangmanggouVarQ;
+			var hengxiangmanggouStrQ;
+			if(hengxiangmanggou=="true"){
+				var gou = 0;
+				var gouStr = totalLength+"÷15"+"+1";
+				if(totalLength%15!=0){
+					gou = Math.ceil(totalLength/15)+1;
+				}else{
+					gou = totalLength/15+1;
+				}
+				hengxiangmanggouVar = gou * widthVar*duanmianVar;
+				hengxiangmanggouVarQ= gou * widthVar;
+				hengxiangmanggouStr = "("+gouStr+")*"+widthVar+"×("+duanmianStr+")";
+				hengxiangmanggouStrQ = "("+gouStr+")*"+widthVar;
+				
+			}
+			
+			var zongxiangmanggouVar ="";
+			var zongxiangmanggouStr="";
+			var zongxiangmanggouVarQ ="";
+			var zongxiangmanggouStrQ="";
+			if(zongxiangmanggou=="true"&&zongxiangmanggoushu!=""){
+				zongxiangmanggouVar = totalLength*duanmianVar*zongxiangmanggoushu;
+				zongxiangmanggouVarQ = totalLength*zongxiangmanggoushu;
+				zongxiangmanggouStr = totalLength+"×("+duanmianStr+")"+"×"+zongxiangmanggoushu;
+				zongxiangmanggouStrQ =  totalLength+"×"+zongxiangmanggoushu;
+			}
+			
+			if(zongxiangmanggouVar!=""||hengxiangmanggouVar!=""){
+				document.getElementById("s35").style.display="table-row";
+				document.getElementById("s35-1").style.display="table-row";
+				var totalVal = 0;
+				var totalStr;
+				var totalValQ = 0;
+				var totalStrQ;
+				if(hengxiangmanggouVar!=""){
+					totalVal = (totalVal+ parseFloat(hengxiangmanggouVar)).toFixed(2);	
+					totalValQ  = (totalValQ+ parseFloat(hengxiangmanggouVarQ)).toFixed(2);	
+					totalStr = hengxiangmanggouStr;
+					totalStrQ = hengxiangmanggouStrQ;
+					document.getElementById("s35-str-1").innerHTML=	hengxiangmanggouStr;
+				}
+				if(zongxiangmanggouVar!=""){
+					totalVal = (parseFloat(totalVal)+ parseFloat(zongxiangmanggouVar)).toFixed(2);	
+					totalValQ  = (parseFloat(totalValQ)+ parseFloat(zongxiangmanggouVarQ)).toFixed(2);	
+					totalStr = totalStr+"+"+zongxiangmanggouVar;	
+					totalStrQ = totalStrQ+"+"+zongxiangmanggouVarQ;						
+					document.getElementById("s35-str-2").innerHTML=	zongxiangmanggouVar;					
+				}
+				
+				document.getElementById("s35-value").innerHTML= totalVal;
+				document.getElementById("q3").style.display="table-row";
+				document.getElementById("q3-1").style.display="table-row";
+				document.getElementById("q3-2").style.display="table-row";
+				document.getElementById("q3-3").style.display="table-row";
+				document.getElementById("q3-str").innerHTML= totalStrQ;
+				document.getElementById("q3-value").innerHTML= totalValQ;
+				document.getElementById("q3-type").innerHTML= duanmianVarQ;
+				
+			}
+			
+			if(zongxiangmanggouVar!=""){
+				document.getElementById("s35-str-2").innerHTML=zongxiangmanggouStr;
+			}
+			if(hengxiangmanggouVar!=""){
+				document.getElementById("s35-str-1").innerHTML=hengxiangmanggouStr;
+			}
+			
+			if((junjuVal/totalLength)<50){
+				document.getElementById("s42").style.display="table-row";
+				document.getElementById("s42-value").innerHTML=watu;
+				document.getElementById("s42-str").innerHTML=watuStr;
+			}else if((junjuVal/totalLength)<200){
+				document.getElementById("s44").style.display="table-row";
+				document.getElementById("s44-value").innerHTML=watu;
+				document.getElementById("s44-str").innerHTML=watuStr;
+			}
+			
+		}
+		
+		function getParam(paramName)
+		{
+				paramValue = "";
+				isFound = false;
+				if (this.location.search.indexOf("?") == 0 && this.location.search.indexOf("=")>1)
+				{
+					arrSource = unescape(this.location.search).substring(1,this.location.search.length).split("&");
+					i = 0;
+					while (i < arrSource.length && !isFound)
+					{
+						if (arrSource[i].indexOf("=") > 0)
+						{
+							 if (arrSource[i].split("=")[0].toLowerCase()==paramName.toLowerCase())
+							 {
+								paramValue = arrSource[i].split("=")[1];
+								isFound = true;
+							 }
+						}
+						i++;
+					}   
+				}
+		   return paramValue;
+		   }
+	</script>
 </head>
 
-<body>
+<body onload="initExecute()">
 <table width="1500" border="0">
   <tr>
     <td><h1 align="center">施工设计图预(结)算</h1></td>
@@ -40,134 +333,131 @@
     <td width="356" bgcolor="#CCCCFF"><div align="center">名称</div></td>
     <td width="78" bgcolor="#CCCCFF"><div align="center">单位</div></td>
     <td width="445" bgcolor="#CCCCFF"><div align="center">计算式</div></td>
-    <td width="265" bgcolor="#CCCCFF">定额判别条件</td>
     <td width="158" bgcolor="#CCCCFF"><div align="center">工程量</div></td>
   </tr>
-  <tr height="18">
-    <td height="90" rowspan="5" bgcolor="#CCCCFF"><div align="center">挖土部分</div></td>
+  <tr height="18" id="s1" style="display:none">
+    <td height="18"  bgcolor="#CCCCFF"><div align="center">挖土部分</div></td>
     <td bgcolor="#CCCCFF"><div align="center">1</div></td>
     <td bgcolor="#CCCCFF"><div align="center">S2-1-1</div></td>
     <td bgcolor="#CCCCFF"><div align="center">人工挖土方Ⅰ、Ⅱ类土</div></td>
     <td bgcolor="#CCCCFF"><div align="center">m3</div></td>
-    <td bgcolor="#CCCCFF">挖方量(m3)=挖方1平均面积*距离1+挖方n平均面积*距离n</td>
-    <td bgcolor="#CCCCFF">Ⅰ、Ⅱ类土</td>
-    <td bgcolor="#CCCCFF">　
+    <td bgcolor="#CCCCFF" id="s1-str"></td>
+    <td bgcolor="#CCCCFF" id="s1-value">　
     <div align="center"></div></td>
   </tr>
-  <tr height="18">
+  <tr height="18" id="s2" style="display:none">
+  <td height="18"  bgcolor="#CCCCFF"><div align="center">挖土部分</div></td>
     <td height="18" bgcolor="#CCCCFF"><div align="center">2</div></td>
     <td bgcolor="#CCCCFF"><div align="center">S2-1-2</div></td>
     <td bgcolor="#CCCCFF"><div align="center">人工挖土方Ⅲ类土</div></td>
     <td bgcolor="#CCCCFF"><div align="center">m3</div></td>
-    <td bgcolor="#CCCCFF">挖方量(m3)=挖方1平均面积*距离1+挖方n平均面积*距离n</td>
-    <td bgcolor="#CCCCFF">Ⅲ类土</td>
-    <td bgcolor="#CCCCFF">　
+    <td bgcolor="#CCCCFF" id="s2-str"></td>
+    <td bgcolor="#CCCCFF" id="s2-value">　
     <div align="center"></div></td>
   </tr>
-  <tr height="18">
+  <tr height="18" id="s3" style="display:none">
+  <td height="18"  bgcolor="#CCCCFF"><div align="center">挖土部分</div></td>
     <td height="18" bgcolor="#CCCCFF"><div align="center">3</div></td>
     <td bgcolor="#CCCCFF"><div align="center">S2-1-3</div></td>
     <td bgcolor="#CCCCFF"><div align="center">人工挖土方Ⅳ类土</div></td>
     <td bgcolor="#CCCCFF"><div align="center">m3</div></td>
-    <td bgcolor="#CCCCFF">挖方量(m3)=挖方1平均面积*距离1+挖方n平均面积*距离n</td>
-    <td bgcolor="#CCCCFF">Ⅳ类土</td>
-    <td bgcolor="#CCCCFF">　
+    <td bgcolor="#CCCCFF" id="s3-str"></td>
+    <td bgcolor="#CCCCFF" id="s3-value">　
     <div align="center"></div></td>
   </tr>
-  <tr height="18">
-    <td height="36" rowspan="2" bgcolor="#CCCCFF"><div align="center">4</div></td>
-    <td rowspan="2" bgcolor="#CCCCFF"><div align="center">S2-1-4</div></td>
-    <td rowspan="2" bgcolor="#CCCCFF"><div align="center">机械挖土方</div></td>
-    <td rowspan="2" bgcolor="#CCCCFF"><div align="center">m3</div></td>
-    <td bgcolor="#CCCCFF">挖方量(m3)=挖方1平均面积*距离1+挖方n平均面积*距离n</td>
-    <td rowspan="2" bgcolor="#CCCCFF">机械挖土方，不考虑土壤种类。</td>
-    <td rowspan="2" bgcolor="#CCCCFF">　
+  <tr height="18" id="s4" style="display:none">
+  <td height="36"   bgcolor="#CCCCFF"><div align="center">挖土部分</div></td>
+    <td height="36"  bgcolor="#CCCCFF"><div align="center">4</div></td>
+    <td  bgcolor="#CCCCFF"><div align="center">S2-1-4</div></td>
+    <td  bgcolor="#CCCCFF"><div align="center">机械挖土方</div></td>
+    <td  bgcolor="#CCCCFF"><div align="center">m3</div></td>
+    <td bgcolor="#CCCCFF" id="s4-str"></td>
+    <td  bgcolor="#CCCCFF" id="s4-value">　
     <div align="center"></div></td>
   </tr>
-  <tr height="18">
-    <td height="18" bgcolor="#CCCCFF">挖方量(m3)=挖方1平均面积*距离1+挖方n平均面积*距离n</td>
-  </tr>
-  <tr height="18">
-    <td height="216" rowspan="12" bgcolor="#CCCCFF"><div align="center">填土部分</div></td>
-    <td rowspan="2" bgcolor="#CCCCFF"><div align="center">1</div></td>
-    <td rowspan="2" bgcolor="#CCCCFF"><div align="center">S2-1-7</div></td>
-    <td rowspan="2" bgcolor="#CCCCFF"><div align="center">人行道填土方</div></td>
-    <td rowspan="2" bgcolor="#CCCCFF"><div align="center">m3</div></td>
-    <td rowspan="2" bgcolor="#CCCCFF">填方量(m3)=（填方1平均面积*距离1+填方n平均面积*距离n）*（人行道/路幅宽）</td>
-    <td rowspan="2" bgcolor="#CCCCFF">人行道</td>
-    <td rowspan="2" bgcolor="#CCCCFF">　
+  <tr height="18" id="s7" style="display:none">
+    <td height="18"  bgcolor="#CCCCFF"><div align="center">填土部分</div></td>
+    <td  bgcolor="#CCCCFF"><div align="center">1</div></td>
+    <td  bgcolor="#CCCCFF"><div align="center">S2-1-7</div></td>
+    <td  bgcolor="#CCCCFF"><div align="center">人行道填土方</div></td>
+    <td  bgcolor="#CCCCFF"><div align="center">m3</div></td>
+    <td  bgcolor="#CCCCFF" id="s7-str"></td>
+    <td  bgcolor="#CCCCFF" id="s7-value">　
     <div align="center"></div></td>
   </tr>
-  <tr height="18"> </tr>
-  <tr height="18">
-    <td height="54" rowspan="3" bgcolor="#CCCCFF"><div align="center">2</div></td>
-    <td rowspan="3" bgcolor="#CCCCFF"><div align="center">S2-1-8</div></td>
-    <td rowspan="3" bgcolor="#CCCCFF"><div align="center">车行道填土方密实度90%</div></td>
-    <td rowspan="3" bgcolor="#CCCCFF"><div align="center">m3</div></td>
-    <td rowspan="3" bgcolor="#CCCCFF">填方量(m3)=（填方1平均面积*距离1+填方n平均面积*距离n）*（车行道/路幅宽）*1.135</td>
-    <td rowspan="3" bgcolor="#CCCCFF">车行道密实度90%</td>
-    <td rowspan="3" bgcolor="#CCCCFF">　
+
+  <tr height="18" id="s8" style="display:none">
+  <td height="18"  bgcolor="#CCCCFF"><div align="center">填土部分</div></td>
+    <td height="54"  bgcolor="#CCCCFF"><div align="center">2</div></td>
+    <td  bgcolor="#CCCCFF"><div align="center">S2-1-8</div></td>
+    <td  bgcolor="#CCCCFF"><div align="center">车行道填土方密实度90%</div></td>
+    <td  bgcolor="#CCCCFF"><div align="center">m3</div></td>
+    <td  bgcolor="#CCCCFF" id="s8-str"></td>
+    <td  bgcolor="#CCCCFF" id="s8-value">　
     <div align="center"></div></td>
   </tr>
-  <tr height="18"> </tr>
-  <tr height="18"> </tr>
-  <tr height="18">
+  <tr height="18" id="s9" style="display:none">
+  <td height="18" rowspan="3" bgcolor="#CCCCFF"><div align="center">填土部分</div></td>
     <td height="54" rowspan="3" bgcolor="#CCCCFF"><div align="center">3</div></td>
-    <td rowspan="3" bgcolor="#CCCCFF"><div align="center">S2-1-9</div></td>
-    <td rowspan="3" bgcolor="#CCCCFF"><div align="center">车行道填土方密实度93%</div></td>
-    <td rowspan="3" bgcolor="#CCCCFF"><div align="center">m3</div></td>
-    <td rowspan="3" bgcolor="#CCCCFF">填方量(m3)=（填方1平均面积*距离1+填方n平均面积*距离n）*（车行道/路幅宽）*1.165</td>
-    <td rowspan="3" bgcolor="#CCCCFF">车行道密实度93%</td>
-    <td rowspan="3" bgcolor="#CCCCFF">　
+    <td  bgcolor="#CCCCFF"><div align="center">S2-1-9</div></td>
+    <td  bgcolor="#CCCCFF"><div align="center">车行道填土方密实度93%</div></td>
+    <td  bgcolor="#CCCCFF"><div align="center">m3</div></td>
+    <td  bgcolor="#CCCCFF" id="s9-str"></td>
+    <td  bgcolor="#CCCCFF" id="s9-value">　
     <div align="center"></div></td>
   </tr>
-  <tr height="18"> </tr>
-  <tr height="18"> </tr>
-  <tr height="18">
-    <td height="36" rowspan="2" bgcolor="#CCCCFF"><div align="center">4</div></td>
-    <td rowspan="2" bgcolor="#CCCCFF"><div align="center">S2-1-10</div></td>
-    <td rowspan="2" bgcolor="#CCCCFF"><div align="center">车行道填土方密实度95%</div></td>
+  <tr height="18" id="s10" style="display:none">
+  <td height="36"  bgcolor="#CCCCFF"><div align="center">填土部分</div></td>
+    <td height="36"  bgcolor="#CCCCFF"><div align="center">4</div></td>
+    <td  bgcolor="#CCCCFF"><div align="center">S2-1-10</div></td>
+    <td  bgcolor="#CCCCFF"><div align="center">车行道填土方密实度95%</div></td>
+    <td  bgcolor="#CCCCFF"><div align="center">m3</div></td>
+    <td  bgcolor="#CCCCFF" id="s10-str"></td>
+    <td  bgcolor="#CCCCFF" id="s10-value">　
+    <div align="center"></div></td>
+  </tr>
+  <tr height="18" id="s11" style="display:none">
+  <td height="18"  bgcolor="#CCCCFF"><div align="center">填土部分</div></td>
+    <td height="36"  bgcolor="#CCCCFF"><div align="center">5</div></td>
+    <td  bgcolor="#CCCCFF"><div align="center">S2-1-11</div></td>
+    <td  bgcolor="#CCCCFF"><div align="center">车行道填土方密实度98%</div></td>
+    <td  bgcolor="#CCCCFF"><div align="center">m3</div></td>
+    <td  bgcolor="#CCCCFF" id="s11-str"></td>
+    <td  bgcolor="#CCCCFF" id="s11-value">　
+    <div align="center"></div></td>
+  </tr>
+  <tr height="18" id="s35" style="display:none">
+    <td height="36" rowspan="2" bgcolor="#CCCCFF"><div align="center">盲沟部分</div></td>
+    <td rowspan="2" bgcolor="#CCCCFF"><div align="center">1</div></td>
+    <td rowspan="2" bgcolor="#CCCCFF"><div align="center">S2-1-35</div></td>
+    <td rowspan="2" bgcolor="#CCCCFF"><div align="center">碎石盲沟</div></td>
     <td rowspan="2" bgcolor="#CCCCFF"><div align="center">m3</div></td>
-    <td rowspan="2" bgcolor="#CCCCFF">填方量(m3)=）填方1平均面积*距离1+填方n平均面积*距离n）*（车行道/路幅宽）*1.185</td>
-    <td rowspan="2" bgcolor="#CCCCFF">车行道密实度95%</td>
-    <td rowspan="2" bgcolor="#CCCCFF">　
+    <td height="18"  bgcolor="#CCCCFF" id="s35-str-1"></td>
+    <td rowspan="2" bgcolor="#CCCCFF" id="s35-value"><div align="center"></div></td>
+  </tr>
+  <tr height="18" id="s35-1" style="display:none">
+    <td   bgcolor="#CCCCFF" id="s35-str-2"></td>
+  </tr>
+  <tr height="18" id="s42" style="display:none">
+    <td height="18"  bgcolor="#CCCCFF"><div align="center">土方场内运输</div></td>
+    <td bgcolor="#CCCCFF"><div align="center">1</div></td>
+    <td bgcolor="#CCCCFF"><div align="center">S2-1-42</div></td>
+    <td bgcolor="#CCCCFF"><div align="center">土方场内运输双轮斗车运距50m以内</div></td>
+    <td bgcolor="#CCCCFF"><div align="center">m3</div></td>
+    <td bgcolor="#CCCCFF" id="s42-str"></td>
+    <td bgcolor="#CCCCFF" id="s42-value">　
     <div align="center"></div></td>
   </tr>
-  <tr height="18"> </tr>
-  <tr height="18">
-    <td height="36" rowspan="2" bgcolor="#CCCCFF"><div align="center">5</div></td>
-    <td rowspan="2" bgcolor="#CCCCFF"><div align="center">S2-1-11</div></td>
-    <td rowspan="2" bgcolor="#CCCCFF"><div align="center">车行道填土方密实度98%</div></td>
-    <td rowspan="2" bgcolor="#CCCCFF"><div align="center">m3</div></td>
-    <td rowspan="2" bgcolor="#CCCCFF">填方量(m3)=）填方1平均面积*距离1+填方n平均面积*距离n）*（车行道/路幅宽）*1.220</td>
-    <td rowspan="2" bgcolor="#CCCCFF">车行道密实度98%</td>
-    <td rowspan="2" bgcolor="#CCCCFF">　
+  <tr height="18" id="s44" style="display:none">
+    <td height="18"  bgcolor="#CCCCFF"><div align="center">土方场内运输</div></td>
+    <td bgcolor="#CCCCFF"><div align="center">2</div></td>
+    <td bgcolor="#CCCCFF"><div align="center">S2-1-44</div></td>
+    <td bgcolor="#CCCCFF"><div align="center">土方场内运输自卸汽车运距200m以内</div></td>
+    <td bgcolor="#CCCCFF"><div align="center">m3</div></td>
+    <td bgcolor="#CCCCFF" id="s44-str"></td>
+    <td bgcolor="#CCCCFF" id="s44-value">　
     <div align="center"></div></td>
   </tr>
-  <tr height="18"> </tr>
-  <tr height="18">
-    <td height="54" rowspan="3" bgcolor="#CCCCFF"><div align="center">横向盲沟</div></td>
-    <td rowspan="6" bgcolor="#CCCCFF"><div align="center">1</div></td>
-    <td rowspan="6" bgcolor="#CCCCFF"><div align="center">S2-1-35</div></td>
-    <td rowspan="6" bgcolor="#CCCCFF"><div align="center">碎石盲沟</div></td>
-    <td rowspan="6" bgcolor="#CCCCFF"><div align="center">m3</div></td>
-    <td width="445" rowspan="3" bgcolor="#CCCCFF">横向碎石盲沟=((道路长度/@+1)*路幅宽（B）)*(断面宽度*断面深度)</td>
-    <td bgcolor="#CCCCFF">当B≤10.5时（b*h)=(0.3*0.4)</td>
-    <td rowspan="6" bgcolor="#CCCCFF"><div align="center">横向盲沟+纵向盲沟</div></td>
-  </tr>
-  <tr height="18">
-    <td height="18" bgcolor="#CCCCFF">当10.5＜B≤21.0时（b*h)=(0.4*0.4)</td>
-  </tr>
-  <tr height="18">
-    <td height="18" bgcolor="#CCCCFF">当B＞21.0时（b*h)=(0.4*0.6)</td>
-  </tr>
-  <tr height="18">
-    <td height="54" rowspan="3" bgcolor="#CCCCFF"><div align="center">纵向盲沟</div></td>
-    <td width="445" rowspan="3" bgcolor="#CCCCFF">纵向碎石盲沟=道路长度*(断面宽度*断面深度)*n</td>
-    <td width="265" rowspan="3" bgcolor="#CCCCFF">选择纵向盲沟，并确定条数，断面宽度*断面深度同横向盲沟</td>
-  </tr>
-  <tr height="18"> </tr>
-  <tr height="18"> </tr>
 </table>
 <p>&nbsp;</p>
 <table width="1500" border="0">
@@ -194,7 +484,7 @@
     <td width="166"><div align="center">计算表达式</div></td>
     <td width="95"><div align="center">工程量</div></td>
   </tr>
-  <tr bgcolor="#99CCFF" height="18">
+  <tr bgcolor="#99CCFF" height="18" id="q1" style="display:none"> 
     <td height="72" rowspan="4"><div align="center">1</div></td>
     <td rowspan="4"><div align="center">040101001<span class="STYLE5">001</span></div></td>
     <td rowspan="4"><div align="center">挖一般土方</div></td>
@@ -202,22 +492,22 @@
     <td><div align="center">1、土方开挖</div></td>
     <td rowspan="4"><div align="center">m3</div></td>
     <td width="247" rowspan="4"><div align="center">按设计图示开挖线以体积计算</div></td>
-    <td rowspan="4"><div align="center">挖方量(m3)=挖方1平均面积*距离1+挖方n平均面积*距离n</div></td>
-    <td rowspan="4"><div align="center"></div></td>
+    <td rowspan="4" id="q1-str"><div align="center"></div></td>
+    <td rowspan="4" id="q1-value"><div align="center"></div></td>
   </tr>
-  <tr height="18">
-    <td width="133" bgcolor="#99CCFF" class="STYLE1"><div align="center">&lt;对应Ⅰ、Ⅱ、Ⅲ、Ⅳ类土 &gt;</div></td>
+  <tr height="18" id="q1-1" style="display:none" >
+    <td width="133" bgcolor="#99CCFF" class="STYLE1" ><div align="center" id="q1-type"></div></td>
     <td height="18" bgcolor="#99CCFF"><div align="center">2、围护、支撑</div></td>
   </tr>
-  <tr height="18">
+  <tr height="18" id="q1-2" style="display:none">
     <td width="133" bgcolor="#99CCFF"><div align="center">2、挖土深度</div></td>
     <td height="18" bgcolor="#99CCFF"><div align="center">3、场内运输</div></td>
   </tr>
-  <tr height="18">
+  <tr height="18" id="q1-3" style="display:none">
     <td width="133" bgcolor="#99CCFF"><div align="center">&lt;不分深度&gt;</div></td>
     <td height="18" bgcolor="#99CCFF"><div align="center">4、平整、夯实</div></td>
   </tr>
-  <tr bgcolor="#99CCFF" height="18">
+  <tr bgcolor="#99CCFF" height="18" id="q2" style="display:none">
     <td height="72" rowspan="4"><div align="center">2</div></td>
     <td rowspan="4"><div align="center">040103001<span class="STYLE5">001</span></div></td>
     <td rowspan="4" bgcolor="#99CCFF"><div align="center">填方</div></td>
@@ -225,22 +515,22 @@
     <td rowspan="2" bgcolor="#99CCFF"><div align="center">1、填方</div></td>
     <td rowspan="4"><div align="center">m3</div></td>
     <td rowspan="2"><div align="center">1、按设计图示尺寸以体积计算</div></td>
-    <td rowspan="4"><div align="center">人行道填方量+车行道填方量</div></td>
-    <td rowspan="4"><div align="center"></div></td>
+    <td rowspan="4" id="q2-str"><div align="center"></div></td>
+    <td rowspan="4" id="q2-value"><div align="center"></div></td>
   </tr>
-  <tr bgcolor="#99CCFF" height="18">
+  <tr bgcolor="#99CCFF" height="18" id="q2-1" style="display:none">
     <td><div align="center">&lt;土方&gt;</div></td>
   </tr>
   
-  <tr height="54">
+  <tr height="54" id="q2-2" style="display:none">
     <td bgcolor="#99CCFF"><div align="center">2、密实度</div></td>
     <td height="54" rowspan="2" bgcolor="#99CCFF"><div align="center">2、压实</div></td>
     <td width="247" rowspan="2" bgcolor="#99CCFF"><div align="center">2、按挖方清单项目工程量减基础、构筑物埋入体积加原地面线至设计要求标高间的体积计算</div></td>
   </tr>
-  <tr height="54">
-    <td bgcolor="#99CCFF" class="STYLE1"><div align="center">&lt;对应密实度&gt;</div></td>
+  <tr height="54" id="q2-3" style="display:none">
+    <td bgcolor="#99CCFF" class="STYLE1"><div align="center" id="q2-type"></div></td>
   </tr>
-  <tr bgcolor="#99CCFF" height="32">
+  <tr bgcolor="#99CCFF" height="32" id="q3" style="display:none">
     <td height="68" rowspan="4"><div align="center">3</div></td>
     <td rowspan="4"><div align="center">040201014<span class="STYLE5">001</span></div></td>
     <td rowspan="4"><div align="center">盲沟</div></td>
@@ -249,19 +539,19 @@
     <td rowspan="4" bgcolor="#99CCFF"><div align="center">盲沟铺筑</div></td>
     <td rowspan="4"><div align="center">m</div></td>
     <td width="247" rowspan="4"><div align="center">按设计图示以长度计算</div></td>
-    <td width="166" rowspan="4"><div align="center">(道路长度/@+1)*路幅宽（B）+经批准的纵向盲沟道路长度*n</div></td>
-    <td rowspan="4"><div align="center"></div></td>
+    <td width="166" rowspan="4" id="q3-str"><div align="center"></div></td>
+    <td rowspan="4" id="q3-value"><div align="center"></div></td>
   </tr>
   
-  <tr bgcolor="#99CCFF" height="32">
+  <tr bgcolor="#99CCFF" height="32" id="q3-1" style="display:none">
     <td bgcolor="#99CCFF"><div align="center">&lt;道渣：粒径：30~80mm&gt;</div></td>
   </tr>
-  <tr bgcolor="#99CCFF" height="32">
+  <tr bgcolor="#99CCFF" height="32" id="q3-2" style="display:none">
     <td bgcolor="#99CCFF"><div align="center">2、断面</div></td>
   </tr>
   
-  <tr bgcolor="#99CCFF" height="32">
-    <td bgcolor="#99CCFF"><div align="center"><span class="STYLE1">&lt;对应b*h&gt;</span></div></td>
+  <tr bgcolor="#99CCFF" height="32" id="q3-3" style="display:none">
+    <td bgcolor="#99CCFF" class="STYLE1"><div align="center" id="q3-type"></div></td>
   </tr>
 </table>
 <p>&nbsp;</p>
