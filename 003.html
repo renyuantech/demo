@@ -1,0 +1,583 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<h2>&nbsp;</h2>
+<table width="1185" border="0">
+  <tr bgcolor="#FFCCFF">
+    <td width="150">道路工程价格选择：</td>
+    <td width="434"><select name="select20">
+        <option selected="selected">政府价格</option>
+        <option>市政协会价格</option>
+        <option>供应商价格</option>
+        <option>用户自定义价格</option>
+    </select></td>
+    <td width="150">道路工程费率选择：</td>
+    <td width="433"><select name="select21">
+        <option>市区1类</option>
+        <option>市区2类</option>
+        <option>郊区1类</option>
+        <option>郊区2类</option>
+    </select></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<h2>道路工程算量要素录入</h2>
+<table width="1185" border="0">
+  <tr>
+    <td width="1178"><div align="center">
+      <h1>道路工程算量要素统计汇总表</h1>
+    </div></td>
+  </tr>
+</table>
+<table width="1185" border="0">
+  <tr bgcolor="#CCCCFF">
+    <td width="29" rowspan="2"><div align="center">类型</div></td>
+    <td width="50" rowspan="2"><div align="center">序号</div></td>
+    <td width="150" rowspan="2"><div align="center">桩    号</div></td>
+    <td colspan="2"><div align="center">横断面截面积(m2)</div></td>
+    <td colspan="2"><div align="center">平均面积(m2)</div></td>
+    <td width="100"><div align="center">距离</div></td>
+    <td colspan="2"><div align="center">土方量（m3)</div></td>
+  </tr>
+  <tr>
+    <td width="110" bgcolor="#CCCCFF"><div align="center">挖方（Aw)</div></td>
+    <td width="110" bgcolor="#CCCCFF"><div align="center">填方(At)</div></td>
+    <td width="180" bgcolor="#CCCCFF"><div align="center">挖方（Aw)</div></td>
+    <td width="180" bgcolor="#CCCCFF"><div align="center">填方(At)</div></td>
+    <td bgcolor="#CCCCFF"><div align="center">（米）</div></td>
+    <td width="117" bgcolor="#CCCCFF"><div align="center">挖方（Aw)</div></td>
+    <td width="117" bgcolor="#CCCCFF"><div align="center">填方(At)</div></td>
+  </tr>
+  <tr bgcolor="#CCCCFF">
+    <td>&nbsp;</td>
+    <td><div align="center">1</div></td>
+    <td><div align="center">k0+
+        <input name="textfield" id="zhuanghao1" type="text" size="12" />
+    </div></td>
+    <td>
+      <div align="center">
+        <input name="textfield23" id="wafang1" type="text" size="10" />
+      </div></td>
+    <td>
+      <div align="center">
+        <input name="textfield23222" id="tianfang1"  type="text" size="10" />
+      </div></td>
+    <td rowspan="2" bgcolor="#CCFF66">①=桩号1的挖方横断面截面积+桩号2的挖方横断面截面积÷2</td>
+    <td rowspan="2" bgcolor="#CCFF66">㈠=桩号1的填方横断面截面积+桩号2的填方横断面截面积÷2</td>
+    <td rowspan="2" bgcolor="#CCFF66">A=桩号2-桩号1</td>
+    <td rowspan="2" bgcolor="#CCFF66">D=①×A</td>
+    <td rowspan="2" bgcolor="#CCFF66">㈠×A</td>
+  </tr>
+  <tr bgcolor="#CCCCFF">
+    <td>&nbsp;</td>
+    <td rowspan="2"><div align="center">2</div></td>
+    <td rowspan="2"><div align="center">k0+
+      <input name="textfield2" type="text" id="zhuanghao2" size="12" />
+    </div></td>
+    <td rowspan="2"><div align="center">
+      <input name="textfield233" type="text" id="wafang2" size="10" />
+    </div></td>
+    <td rowspan="2"><div align="center">
+      <input name="textfield2333" type="text" id="tianfang2" size="10" />
+    </div></td>
+  </tr>
+  <tr bgcolor="#CCCCFF">
+    <td>&nbsp;</td>
+    <td rowspan="2" bgcolor="#CCFF66">②=桩号2的挖方横断面截面积+桩号3的挖方横断面截面积÷2</td>
+    <td rowspan="2" bgcolor="#CCFF66">㈡=桩号2的填方横断面截面积+桩号3的填方横断面截面积÷2</td>
+    <td rowspan="2" bgcolor="#CCFF66">B=桩号3-桩号2</td>
+    <td rowspan="2" bgcolor="#CCFF66">E=②×B</td>
+    <td rowspan="2" bgcolor="#CCFF66">㈡×B</td>
+  </tr>
+  <tr bgcolor="#CCCCFF">
+    <td>&nbsp;</td>
+    <td rowspan="2"><div align="center">3</div></td>
+    <td rowspan="2"><div align="center">k0+
+      <input name="textfield22" type="text" id="zhuanghao3" size="12" />
+    </div></td>
+    <td rowspan="2"><div align="center">
+      <input name="textfield2332" type="text" id="wafang3" size="10" />
+    </div></td>
+    <td rowspan="2"><div align="center">
+      <input name="textfield23322" type="text" id="tianfang3" size="10" />
+    </div></td>
+  </tr>
+  <tr bgcolor="#CCCCFF">
+    <td>&nbsp;</td>
+    <td rowspan="2" bgcolor="#CCFF66">③=桩号3的挖方横断面截面积+桩号4的挖方横断面截面积÷2</td>
+    <td rowspan="2" bgcolor="#CCFF66">㈢=桩号3的填方横断面截面积+桩号4的填方横断面截面积÷2</td>
+    <td rowspan="2" bgcolor="#CCFF66">C=桩号4-桩号3</td>
+    <td rowspan="2" bgcolor="#CCFF66">F=③×C</td>
+    <td rowspan="2" bgcolor="#CCFF66">㈢×C</td>
+  </tr>
+  <tr bgcolor="#CCCCFF">
+    <td>&nbsp;</td>
+    <td><div align="center">4</div></td>
+    <td><div align="center">k0+
+        <input name="textfield3" type="text" id="zhuanghao4" size="12" />
+    </div></td>
+    <td>
+      <div align="center">
+        <input name="textfield232" type="text" id="wafang4" size="10" />
+      </div></td>
+    <td>
+      <div align="center">
+        <input name="textfield2322" type="text" id="tianfang4" size="10" />
+      </div></td>
+  </tr>
+  <tr bgcolor="#CCCCFF">
+    <td colspan="2"><label></label>      <div align="right">
+        <input type="submit" name="Submit" value="添  加" />
+      </div></td>
+    <td colspan="4"><input type="submit" name="Submit2" value="删  除" /></td>
+    <td><div align="right">合计：</div></td>
+    <td bgcolor="#CCFF66">L总=A+B+C</td>
+    <td bgcolor="#CCFF66">D+E+F</td>
+    <td bgcolor="#CCFF66">㈠×A+㈡×B+㈢×C</td>
+  </tr>
+</table>
+<table width="1185" border="0">
+  <tr>
+    <td bgcolor="#CCFF66">加权平均运距：=(D×A+E×B+F×C...)÷L总</td>
+  </tr>
+</table>
+<table width="1185" border="0">
+  <tr bgcolor="#99CCFF">
+    <td width="1175">其中：    直线段总长度：直线段-1+直线段-2+直线段-n...</td>
+  </tr>
+</table>
+<table width="1185" border="0">
+  <tr bgcolor="#99CCFF">
+    <td colspan="2">直线段-1：k0+
+      <input name="textfield423" type="text" size="12" />
+      ～k0+
+    <input name="textfield2423" type="text" size="12" />
+    <select name="select22">
+      <option selected="selected">水泥路面</option>
+      <option>混凝土路面</option>
+    </select></td>
+  </tr>
+  <tr bgcolor="#99CCFF">
+    <td colspan="2">直线段-2：k0+
+      <input name="textfield42" type="text" size="12" />
+～k0+
+<input name="textfield242" type="text" size="12" />
+<select name="select23">
+  <option selected="selected">水泥路面</option>
+  <option>混凝土路面</option>
+</select></td>
+  </tr>
+  <tr bgcolor="#99CCFF">
+    <td width="110"><div align="right">
+      <input type="submit" name="Submit5" value="添  加" />
+    </div></td>
+    <td width="1065"><input type="submit" name="Submit23" value="删  除" /></td>
+  </tr>
+</table>
+<table width="1185" border="0">
+  <tr>
+    <td bgcolor="#99CCFF"><div align="center">交叉角类型</div></td>
+    <td bgcolor="#99CCFF"><div align="center">中心角(度°)</div></td>
+    <td bgcolor="#99CCFF"><div align="center">外半径r(m)</div></td>
+    <td bgcolor="#99CCFF"><div align="center">内半径r(m)</div></td>
+    <td bgcolor="#99CCFF"><div align="center">道路面积（m2)</div></td>
+    <td bgcolor="#99CCFF"><div align="center">人行道面积（m2)</div></td>
+    <td bgcolor="#99CCFF"><div align="center">侧（平、缘）石长度(m)</div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#99CCFF"><div align="center">正交-1</div></td>
+    <td bgcolor="#99CCFF"><div align="center">α°=
+        <input name="textfield2323" type="text" size="10" />
+    </div></td>
+    <td bgcolor="#99CCFF"><div align="center">R1
+        <input name="textfield23232" type="text" size="10" />
+    </div></td>
+    <td bgcolor="#99CCFF"><div align="center">r1
+        <input name="textfield232322" type="text" size="10" />
+    </div></td>
+    <td bgcolor="#99CCFF"><div align="center">R1
+        <input name="textfield2323222" type="text" size="10" />
+    </div></td>
+    <td bgcolor="#99CCFF"><div align="center">r1
+        <input name="textfield23232222" type="text" size="10" />
+    </div></td>
+    <td bgcolor="#99CCFF"><div align="center">R1
+        <input name="textfield232322222" type="text" size="10" />
+    </div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#99CCFF"><div align="right">
+      <input type="submit" name="Submit3" value="添  加" />
+    </div></td>
+    <td colspan="6" bgcolor="#99CCFF"><input type="submit" name="Submit22" value="删  除" /></td>
+  </tr>
+  <tr>
+    <td rowspan="4" bgcolor="#99CCFF"><div align="center">斜交-1</div></td>
+    <td rowspan="2" bgcolor="#99CCFF"><div align="center">α°=
+        <input name="textfield23233" type="text" size="10" />
+    </div></td>
+    <td bgcolor="#99CCFF"><div align="center">R2
+        <input name="textfield2323322" type="text" size="10" />
+    </div></td>
+    <td bgcolor="#99CCFF"><div align="center">r2
+        <input name="textfield23233222222" type="text" size="10" />
+    </div></td>
+    <td bgcolor="#99CCFF"><div align="center">A2R2
+        <input name="textfield232332222222222" type="text" size="10" />
+    </div></td>
+    <td bgcolor="#99CCFF"><div align="center">r2
+        <input name="textfield2323322222222223" type="text" size="10" />
+    </div></td>
+    <td bgcolor="#99CCFF"><div align="center">R2
+        <input name="textfield23233222222222232222" type="text" size="10" />
+    </div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#99CCFF"><div align="center">R4
+        <input name="textfield23233222" type="text" size="10" />
+    </div></td>
+    <td bgcolor="#99CCFF"><div align="center">r4
+        <input name="textfield232332222222" type="text" size="10" />
+    </div></td>
+    <td bgcolor="#99CCFF"><div align="center">A4R4
+        <input name="textfield2323322222222222" type="text" size="10" />
+    </div></td>
+    <td bgcolor="#99CCFF"><div align="center">r4
+        <input name="textfield23233222222222232" type="text" size="10" />
+    </div></td>
+    <td bgcolor="#99CCFF"><div align="center">R4
+        <input name="textfield232332222222222322222" type="text" size="10" />
+    </div></td>
+  </tr>
+  <tr>
+    <td rowspan="2" bgcolor="#99CCFF"><div align="center">β°=
+        <input name="textfield232332" type="text" size="10" />
+        <br />
+    </div></td>
+    <td bgcolor="#99CCFF"><div align="center">R1
+        <input name="textfield232332222" type="text" size="10" />
+    </div></td>
+    <td bgcolor="#99CCFF"><div align="center">r1
+        <input name="textfield2323322222222" type="text" size="10" />
+    </div></td>
+    <td bgcolor="#99CCFF"><div align="center">A1R1
+        <input name="textfield23233222222222222" type="text" size="10" />
+    </div></td>
+    <td bgcolor="#99CCFF"><div align="center">r1
+        <input name="textfield232332222222222322" type="text" size="10" />
+    </div></td>
+    <td bgcolor="#99CCFF"><div align="center">R1
+        <input name="textfield2323322222222223222222" type="text" size="10" />
+    </div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#99CCFF"><div align="center">R3
+        <input name="textfield2323322222" type="text" size="10" />
+    </div></td>
+    <td bgcolor="#99CCFF"><div align="center">r3
+        <input name="textfield23233222222222" type="text" size="10" />
+    </div></td>
+    <td bgcolor="#99CCFF"><div align="center">A3R3
+        <input name="textfield232332222222222222" type="text" size="10" />
+    </div></td>
+    <td bgcolor="#99CCFF"><div align="center">r3
+        <input name="textfield2323322222222223222" type="text" size="10" />
+    </div></td>
+    <td bgcolor="#99CCFF"><div align="center">R3
+        <input name="textfield23233222222222232222222" type="text" size="10" />
+    </div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#99CCFF"><div align="right">
+      <input type="submit" name="Submit32" value="添  加" />
+    </div></td>
+    <td colspan="6" bgcolor="#99CCFF"><input type="submit" name="Submit222" value="删  除" /></td>
+  </tr>
+</table>
+<table width="1185" border="0">
+  <tr bgcolor="#99CCFF">
+    <td>正交（l）：60m1个 桩    号：k0+
+        <input name="textfield43" type="text" size="12" />
+～k0+
+<input name="textfield243" type="text" size="12" />
+<br /></td>
+    <td>斜交（l):83.2m1个 桩    号：k0+
+        <input name="textfield432" type="text" size="12" />
+～k0+
+<input name="textfield2432" type="text" size="12" /></td>
+  </tr>
+</table>
+<table width="1185" border="0">
+  <tr bgcolor="#99CCFF">
+    <td width="192" bgcolor="#CCFF66"><div align="center">道路路幅宽（B):=车行道宽度+人行道宽度+隔离带宽度</div></td>
+    <td width="209" bgcolor="#CCCCFF"><div align="center">车行道宽度（B1):
+        <input name="textfield23233232" type="text" id="chexingdaokuandu" size="6" />
+m</div></td>
+    <td width="181" bgcolor="#CCCCFF"><div align="center">人行道宽度t:
+        <input name="textfield232332322" type="text" id="renxingdaokuandu" size="6" />
+m</div></td>
+    <td width="193" bgcolor="#CCCCFF"><div align="center">隔离带宽度：
+        <input name="textfield2323323223" type="text" id="gelidaikuandu" size="6" />
+    m</div></td>
+    <td width="190"><div align="center">正交宽度（b):
+        <input name="textfield2323323222" type="text" id="zhengjiaokuandu" size="4" />
+    m</div></td>
+    <td width="194"><div align="center">斜交宽度（b1):
+        <input name="textfield23233232222" type="text" id="xiejiaokuandu" size="4" />
+    m</div></td>
+  </tr>
+</table>
+<table width="1185" border="0">
+  <tr>
+    <td width="190" bgcolor="#CCCCFF">土壤类别：
+      <select id="turangleibie" name="select">
+        <option value="1" selected="selected">I    类土</option>
+        <option value="2">II   类土</option>
+        <option value="3">III  类土</option>
+      </select>    </td>
+    <td width="195" bgcolor="#CCCCFF">密实度：
+      <select id="mishidu" name="select2">
+        <option value="90">90</option>
+        <option value="93">93</option>
+        <option value="95">95</option>
+        <option value="98">98</option>
+            </select>
+%</td>
+    <td width="195" bgcolor="#CCCCFF">挖土方式：
+      <select  id="watufangshi" name="select24">
+        <option value="1">人工挖土方</option>
+        <option value="2">机械挖土方</option>
+            </select></td>
+    <td bgcolor="#CCCCFF">碎石盲沟：
+    <input type="checkbox" id="hengxiangmanggou" name="checkbox22322" value="checkbox" />
+    横向盲沟
+     <input type="checkbox" id="zongxiangmanggou" name="checkbox223222" value="checkbox" />
+纵向盲沟
+  <input name="textfield2433" id="zongxiangmanggoushu" type="text" size="6" />
+条</td>
+  </tr>
+</table>
+<table width="1185" border="0">
+  <tr bgcolor="#99CCFF">
+    <td>垫层：</td>
+    <td width="1070">砾石砂隔离层h=
+      <input name="textfield23233234" type="text" size="10" />
+    cm</td>
+  </tr>
+  <tr bgcolor="#99CCFF">
+    <td rowspan="3">基层：</td>
+    <td><select name="select3">
+      <option>厂拌粉煤灰粗粒径三渣</option>
+          </select>
+      h=
+      <input name="textfield232332342" type="text" size="10" />
+    cm</td>
+  </tr>
+  <tr>
+    <td bgcolor="#99CCFF"><select name="select4">
+        <option>厂拌粉煤灰粗粒径三渣</option>
+      </select>
+      h=
+      <input name="textfield2323323422" type="text" size="10" />
+    cm</td>
+  </tr>
+  <tr>
+    <td bgcolor="#99CCFF"><select name="select5">
+        <option>厂拌粉煤灰粗粒径三渣</option>
+      </select>
+      h=
+      <input name="textfield23233234222" type="text" size="10" />
+    cm</td>
+  </tr>
+</table>
+<table width="1185" border="0">
+  <tr bgcolor="#99CCFF">
+    <td width="85" rowspan="4">面层：</td>
+    <td width="1090">h=
+      <input name="textfield2323323423" type="text" size="10" />
+    cm
+    <select name="select6">
+      <option>C25</option>
+      <option selected="selected">C30</option>
+      <option>C35</option>
+      <option>C40</option>
+      </select>
+    水泥混凝土
+    <select name="select9">
+      <option>（5-40mm)</option>
+      <option>（5-20mm)</option>
+      <option>（5-16mm)</option>
+      </select>
+    一块板长度×宽度/块采用商品混凝土浇筑</td>
+  </tr>
+  <tr>
+    <td bgcolor="#99CCFF">h=
+      <input name="textfield23233234232" type="text" size="10" />
+    cm
+    
+    <select name="select7">
+      <option>C25</option>
+      <option>C30</option>
+      <option>C35</option>
+      <option>C40</option>
+    </select>
+    水泥混凝土
+    <select name="select11">
+      <option>（5-40mm)</option>
+      <option>（5-20mm)</option>
+      <option>（5-16mm)</option>
+    </select>
+    一块板长度×宽度/块采用商品混凝土浇筑</td>
+  </tr>
+  <tr>
+    <td bgcolor="#99CCFF">h=
+      <input name="textfield232332342322" type="text" size="10" />
+    cm
+    <select name="select8">
+      <option>AC-30</option>
+      <option>AC-13</option>
+      </select>
+    <select name="select12">
+      <option>粗粒式沥青混凝土</option>
+      <option>细粒式沥青混凝土</option>
+      </select></td>
+  </tr>
+  <tr>
+    <td bgcolor="#99CCFF"> h=
+      <input name="textfield2323323423222" type="text" size="10" />
+    cm
+    
+    <select name="select10">
+      <option>AC-30</option>
+      <option selected="selected">AC-13</option>
+      </select>
+    <select name="select13">
+      <option>粗粒式沥青混凝土</option>
+      <option selected="selected">细粒式沥青混凝土</option>
+      </select></td>
+  </tr>
+</table>
+<table width="1185" border="0">
+  <tr bgcolor="#99CCFF">
+    <td width="85" rowspan="4">附属设施：</td>
+    <td colspan="4">预制水泥混凝土人行道板面积</td>
+  </tr>
+  <tr>
+    <td colspan="4" bgcolor="#99CCFF">预制混凝土侧石现浇混凝土
+      <select name="select14">
+        <option>（5-40mm)</option>
+        <option selected="selected">（5-20mm)</option>
+        <option>（5-16mm)</option>
+      </select>
+      <select name="select17">
+        <option selected="selected">C20</option>
+        <option>C25</option>
+        <option>C30</option>
+        <option>C35</option>
+        <option>C40</option>
+      </select>
+    长度</td>
+  </tr>
+  <tr>
+    <td colspan="4" bgcolor="#99CCFF">预制混凝土侧平石现浇混凝土
+      <select name="select15">
+        <option>（5-40mm)</option>
+        <option selected="selected">（5-20mm)</option>
+        <option>（5-16mm)</option>
+      </select>
+      <select name="select18">
+        <option selected="selected">C20</option>
+        <option>C25</option>
+        <option>C30</option>
+        <option>C35</option>
+        <option>C40</option>
+      </select>
+    长度</td>
+  </tr>
+  <tr>
+    <td colspan="4" bgcolor="#99CCFF">混凝土块 现浇混凝土
+      <select name="select16">
+        <option>（5-40mm)</option>
+        <option>（5-20mm)</option>
+        <option selected="selected">（5-16mm)</option>
+      </select>
+      <select name="select19">
+        <option selected="selected">C20</option>
+        <option>C25</option>
+        <option>C30</option>
+        <option>C35</option>
+        <option>C40</option>
+      </select>
+    长度（双排、宽30cm)</td>
+  </tr>
+  <tr bgcolor="#99CCFF">
+    <td rowspan="5">钢筋工程：</td>
+    <td colspan="4">水泥混凝土面层构造钢筋（非预应力钢筋）</td>
+  </tr>
+  <tr>
+    <td width="247" bgcolor="#99CCFF">胀缝
+      <input name="textfield232332342322223" type="text" size="10" />
+    /道</td>
+    <td width="294" bgcolor="#99CCFF">施工缝
+      <input name="textfield2323323423222232" type="text" size="10" />
+/道</td>
+    <td width="268" bgcolor="#99CCFF">缩缝
+      <input name="textfield23233234232222322" type="text" size="10" />
+/道</td>
+    <td width="269" bgcolor="#99CCFF">纵缝
+      <input name="textfield232332342322223222" type="text" size="10" />
+/道</td>
+  </tr>
+  <tr>
+    <td colspan="4" bgcolor="#99CCFF">水泥混凝土面层钢筋网片（非预应力钢筋）</td>
+  </tr>
+  <tr>
+    <td colspan="4" bgcolor="#99CCFF">机动车道钢筋网加固板块构造钢筋
+      <input name="textfield23233234232222" type="text" size="10" />
+      kg
+      
+    /块</td>
+  </tr>
+  <tr>
+    <td colspan="4" bgcolor="#99CCFF">非机动车道钢筋网加固板块构造钢筋
+      <input name="textfield232332342322222" type="text" size="10" />
+      kg
+      
+    /块</td>
+  </tr>
+</table>
+<table width="1185" border="0">
+  <tr>
+    <td width="85">&nbsp;</td>
+    <td width="545">&nbsp;</td>
+    <td width="85">&nbsp;</td>
+    <td width="452">&nbsp;</td>
+  </tr>
+</table>
+<table width="1185" border="0">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<table width="1185" border="0">
+  <tr>
+    <td><div align="center">
+      <input type="submit" name="Submit4" onclick="collectData()" value="开 始 计 算" />
+    </div></td>
+  </tr>
+</table>
+<p align="center">&nbsp;</p>
+</body>
+
+
+</html>
