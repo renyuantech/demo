@@ -101,6 +101,9 @@
 			var chexingdaokuandu = getParam("chexingdaokuandu");
 			var renxingdaokuandu = getParam("renxingdaokuandu");
 			var gelidaikuandu = getParam("gelidaikuandu");
+			if(gelidaikuandu==""){
+				gelidaikuandu=0;
+			}
 			var mishidu = getParam("mishidu");
 			var tiantu ="";
 			var tiantuStr ="";
@@ -218,8 +221,8 @@
 				}
 				hengxiangmanggouVar = gou * widthVar*duanmianVar;
 				hengxiangmanggouVarQ= gou * widthVar;
-				hengxiangmanggouStr = "("+gouStr+")*"+widthVar+"×("+duanmianStr+")";
-				hengxiangmanggouStrQ = "("+gouStr+")*"+widthVar;
+				hengxiangmanggouStr = "("+gouStr+")×"+widthVar+"×("+duanmianStr+")";
+				hengxiangmanggouStrQ = "("+gouStr+")×"+widthVar;
 				
 			}
 			
@@ -397,8 +400,8 @@
     <div align="center"></div></td>
   </tr>
   <tr height="18" id="s9" style="display:none">
-  <td height="18" rowspan="3" bgcolor="#CCCCFF"><div align="center">填土部分</div></td>
-    <td height="54" rowspan="3" bgcolor="#CCCCFF"><div align="center">3</div></td>
+  <td height="18" bgcolor="#CCCCFF"><div align="center">填土部分</div></td>
+    <td height="54"  bgcolor="#CCCCFF"><div align="center">3</div></td>
     <td  bgcolor="#CCCCFF"><div align="center">S2-1-9</div></td>
     <td  bgcolor="#CCCCFF"><div align="center">车行道填土方密实度93%</div></td>
     <td  bgcolor="#CCCCFF"><div align="center">m3</div></td>
